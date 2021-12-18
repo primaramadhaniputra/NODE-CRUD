@@ -1,0 +1,24 @@
+<h1 class="mb-5">Contact</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nama</th>
+      <th scope="col">No HP</th>
+      <th scope="col">Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% contacts.forEach((contact,index) => { %>
+    <tr>
+      <th scope="row"><%= ++index %></th>
+      <td><%= contact.nama %></td>
+      <td><%= contact.nohp %></td>
+      <td>
+        <a style="text-decoration: none" href="#" class="badge bg-warning text-dark">detail</a>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
