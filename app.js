@@ -1,12 +1,13 @@
+const { urlencoded } = require('express');
 const express = require('express')
 const app = express()
 var expressLayouts = require('express-ejs-layouts');
 const port = 3000
-const { loadContact } = require('./utils/contact')
+const { loadContact, detailContact } = require('./utils/contact')
 
 
 app.set('view engine', 'ejs')
-
+app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts)
 app.get('/', (req, res) => {
    res.render('home', {
@@ -26,6 +27,26 @@ app.get('/contact', (req, res) => {
       title: 'contact',
       layout: 'layouts/main',
       contacts
+   })
+})
+
+app.get('/detail/:nama', (req, res) => {
+   const contact = detailContact(req.params.nama)
+   if (contact !== undefined) {
+      res.render('detail', {
+         title: 'detail contact',
+         layout: "layouts/main",
+         contact
+      })
+   } else {
+      res.redirect('/eror')
+   }
+})
+
+app.get('/addContact', (req, res) => {
+   res.render('add-contact', {
+      title: 'add contact',
+      layout: "layouts/main",
    })
 })
 

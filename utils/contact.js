@@ -21,4 +21,10 @@ const loadContact = () => {
    return contacts
 }
 
-module.exports = { loadContact }
+// mencari detail contact
+const detailContact = (nama) => {
+   const contacts = loadContact()
+   return contacts.find(contact => contact.nama === nama)
+}
+
+module.exports = { loadContact, detailContact }

@@ -1,5 +1,7 @@
 <h1 class="mb-5">Contact</h1>
 
+<a class="btn btn-primary mb-3" href="/addContact">Tambah data contact</a>
+
 <table class="table">
   <thead>
     <tr>
@@ -16,7 +18,7 @@
       <td><%= contact.nama %></td>
       <td><%= contact.nohp %></td>
       <td>
-        <a style="text-decoration: none" href="#" class="badge bg-warning text-dark">detail</a>
+        <a style="text-decoration: none" href="/detail/<%=contact.nama%>" class="badge bg-warning text-dark">detail</a>
       </td>
     </tr>
     <% }) %>
